@@ -9,7 +9,7 @@
 #import "UIView+ExpandResponse.h"
 #import <objc/runtime.h>
 
-static void *noneExpandResponseKey = &noneExpandResponseKey;
+static void *expandResponseKey = &expandResponseKey;
 
 @implementation UIView (ExpandResponse)
 
@@ -22,7 +22,7 @@ static void *noneExpandResponseKey = &noneExpandResponseKey;
 
 - (BOOL)sw_pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    if(!self.noneExpandResponse)
+    if(self.expandResponse)
     {
         CGRect bounds = self.bounds;
         CGFloat dx = MIN(bounds.size.width - 44.0f, 0)/2.0f;
@@ -34,14 +34,14 @@ static void *noneExpandResponseKey = &noneExpandResponseKey;
     }
 }
 
-- (void)setNoneExpandResponse:(BOOL)noneExpandResponse
+- (void)setExpandResponse:(BOOL)expandResponse
 {
-    objc_setAssociatedObject(self, noneExpandResponseKey, @(noneExpandResponse), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, expandResponseKey, @(expandResponse), OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (BOOL)noneExpandResponse
+- (BOOL)expandResponse
 {
-    return [objc_getAssociatedObject(self, noneExpandResponseKey) boolValue];
+    return [objc_getAssociatedObject(self, expandResponseKey) boolValue];
 }
 
 

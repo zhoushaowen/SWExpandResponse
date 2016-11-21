@@ -10,7 +10,7 @@
 
 @interface UIView (ExpandResponse)
 
-//是否扩张UIView响应范围,默认为NO
-@property (nonatomic) BOOL noneExpandResponse;
+//是否扩展UIView响应范围,默认为NO
+@property (nonatomic) BOOL expandResponse;
 
 @end
