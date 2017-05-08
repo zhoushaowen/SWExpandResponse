@@ -36,7 +36,7 @@ static void *expandResponseKey = &expandResponseKey;
 
 - (void)setExpandResponse:(BOOL)expandResponse
 {
-    objc_setAssociatedObject(self, expandResponseKey, @(expandResponse), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, expandResponseKey, @(expandResponse), OBJC_ASSOCIATION_RETAIN);
 }
 
 - (BOOL)expandResponse
